@@ -23,6 +23,9 @@ Juptyer Notebooks (historically called IPython Notebooks) will be our primary to
 print('This is code being run.')
 ```
 
+    This is code being run.
+
+
 ## Importing Packages
 The next thing we're going to do is load in some python packages that will be part of our toolbox for manipulating and analyzing data. The standard python package for working with data tables is called **pandas**. Below, we import this under the **alias** pd, which is the industry standard. This will give us a shorthand way to access special functions and methods within the package without having to type the longer name pandas. 
 
@@ -41,6 +44,11 @@ You might have started to notice that the code blocks have little notes that say
 
 You may also notice that other cell blocks, such as this one, do not have the **In [ ]:** label as with the code blocks. This is because this cell block is formatted as **Markdown** rather then code. You can see (and change) what type of cell is by clicking the dropdown menu at the top:
 <img src="images/jupyter_notebook_cell_type_dropdown.png" width="750">
+
+
+```python
+
+```
 
 ## Command Versus Edit Mode
 
@@ -72,9 +80,20 @@ pwd
 ```
 
 
+
+
+    '/Users/mstetz/Documents/Learn_Matt/section01/dsc-learn-lessons-lab-data-science/dsc-first-codealong-data-science'
+
+
+
+
 ```python
 ls
 ```
+
+    CONTRIBUTING.md  README.md        index.ipynb      [31mlego_sets.csv[m[m*
+    LICENSE.md       [34mimages[m[m/          [34mindex_files[m[m/
+
 
 ## Loading a DataFrame
 The primary datatype within the pandas package is called a dataframe and is similar to a spreadsheet in excel. Here's a brief example of loading a csv file from your hard drive:
@@ -82,9 +101,141 @@ The primary datatype within the pandas package is called a dataframe and is simi
 
 ```python
 df = pd.read_csv('lego_sets.csv') #Loads the dataframe in
-print(len(df)) #Prints the length of the dataframe
+print(len(df)) #Prints the length of the dataframe (number of rows)
 df.head() #Uses a built in method common to all Pandas Dataframes
 ```
+
+    12261
+
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ages</th>
+      <th>list_price</th>
+      <th>num_reviews</th>
+      <th>piece_count</th>
+      <th>play_star_rating</th>
+      <th>prod_desc</th>
+      <th>prod_id</th>
+      <th>prod_long_desc</th>
+      <th>review_difficulty</th>
+      <th>set_name</th>
+      <th>star_rating</th>
+      <th>theme_name</th>
+      <th>val_star_rating</th>
+      <th>country</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>6-12</td>
+      <td>29.99</td>
+      <td>2.0</td>
+      <td>277.0</td>
+      <td>4.0</td>
+      <td>Catapult into action and take back the eggs fr...</td>
+      <td>75823.0</td>
+      <td>Use the staircase catapult to launch Red into ...</td>
+      <td>Average</td>
+      <td>Bird Island Egg Heist</td>
+      <td>4.5</td>
+      <td>Angry Birds™</td>
+      <td>4.0</td>
+      <td>US</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6-12</td>
+      <td>19.99</td>
+      <td>2.0</td>
+      <td>168.0</td>
+      <td>4.0</td>
+      <td>Launch a flying attack and rescue the eggs fro...</td>
+      <td>75822.0</td>
+      <td>Pilot Pig has taken off from Bird Island with ...</td>
+      <td>Easy</td>
+      <td>Piggy Plane Attack</td>
+      <td>5.0</td>
+      <td>Angry Birds™</td>
+      <td>4.0</td>
+      <td>US</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6-12</td>
+      <td>12.99</td>
+      <td>11.0</td>
+      <td>74.0</td>
+      <td>4.3</td>
+      <td>Chase the piggy with lightning-fast Chuck and ...</td>
+      <td>75821.0</td>
+      <td>Pitch speedy bird Chuck against the Piggy Car....</td>
+      <td>Easy</td>
+      <td>Piggy Car Escape</td>
+      <td>4.3</td>
+      <td>Angry Birds™</td>
+      <td>4.1</td>
+      <td>US</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>12+</td>
+      <td>99.99</td>
+      <td>23.0</td>
+      <td>1032.0</td>
+      <td>3.6</td>
+      <td>Explore the architecture of the United States ...</td>
+      <td>21030.0</td>
+      <td>Discover the architectural secrets of the icon...</td>
+      <td>Average</td>
+      <td>United States Capitol Building</td>
+      <td>4.6</td>
+      <td>Architecture</td>
+      <td>4.3</td>
+      <td>US</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>12+</td>
+      <td>79.99</td>
+      <td>14.0</td>
+      <td>744.0</td>
+      <td>3.2</td>
+      <td>Recreate the Solomon R. Guggenheim Museum® wit...</td>
+      <td>21035.0</td>
+      <td>Discover the architectural secrets of Frank Ll...</td>
+      <td>Challenging</td>
+      <td>Solomon R. Guggenheim Museum®</td>
+      <td>4.6</td>
+      <td>Architecture</td>
+      <td>4.1</td>
+      <td>US</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 ## Python Comments
 
@@ -170,6 +321,13 @@ You can also check what type of object something is using the built in **type()*
 type(df)
 ```
 
+
+
+
+    pandas.core.frame.DataFrame
+
+
+
 ## Common DataFrame Methods
 As you can see, our variable **df** is a DataFrame object (which is part of the Pandas core package). Here's some other common methods you will want to become familiar with when working with Pandas dataframes:  
 * df.head() 
@@ -217,14 +375,116 @@ df.head(2) #preview your spreadsheet again; 2 keeps it a nice small preview
 ```
 
 
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ages</th>
+      <th>list_price</th>
+      <th>num_reviews</th>
+      <th>piece_count</th>
+      <th>play_star_rating</th>
+      <th>prod_desc</th>
+      <th>prod_id</th>
+      <th>prod_long_desc</th>
+      <th>review_difficulty</th>
+      <th>set_name</th>
+      <th>star_rating</th>
+      <th>theme_name</th>
+      <th>val_star_rating</th>
+      <th>country</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>6-12</td>
+      <td>29.99</td>
+      <td>2.0</td>
+      <td>277.0</td>
+      <td>4.0</td>
+      <td>Catapult into action and take back the eggs fr...</td>
+      <td>75823.0</td>
+      <td>Use the staircase catapult to launch Red into ...</td>
+      <td>Average</td>
+      <td>Bird Island Egg Heist</td>
+      <td>4.5</td>
+      <td>Angry Birds™</td>
+      <td>4.0</td>
+      <td>US</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6-12</td>
+      <td>19.99</td>
+      <td>2.0</td>
+      <td>168.0</td>
+      <td>4.0</td>
+      <td>Launch a flying attack and rescue the eggs fro...</td>
+      <td>75822.0</td>
+      <td>Pilot Pig has taken off from Bird Island with ...</td>
+      <td>Easy</td>
+      <td>Piggy Plane Attack</td>
+      <td>5.0</td>
+      <td>Angry Birds™</td>
+      <td>4.0</td>
+      <td>US</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
 ```python
 df.ages.head()
 ```
 
 
+
+
+    0    6-12
+    1    6-12
+    2    6-12
+    3     12+
+    4     12+
+    Name: ages, dtype: object
+
+
+
+
 ```python
 df.ages[:5] #Here we introduce another new syntax the list slice [:5] this limits us to the first 5 items
 ```
+
+
+
+
+    0    6-12
+    1    6-12
+    2    6-12
+    3     12+
+    4     12+
+    Name: ages, dtype: object
+
+
 
 ## List and Series Slices
 Above, we introduced an entirely new programming pattern called a slice.  
@@ -239,8 +499,20 @@ While we could have also used `df.State.head()`, slicing works for many more dat
 
 
 ```python
-df.piece_count.
+df.piece_count.head()
 ```
+
+
+
+
+    0     277.0
+    1     168.0
+    2      74.0
+    3    1032.0
+    4     744.0
+    Name: piece_count, dtype: float64
+
+
 
 ## Common Series Methods
 Some very useful series methods include:  
@@ -265,6 +537,43 @@ df.play_star_rating.value_counts() #Read the docstring and tinker! See how it wo
 ```
 
 
+
+
+    5.0    2219
+    4.5    1136
+    4.7     840
+    4.0     816
+    4.3     793
+    4.6     685
+    4.4     566
+    4.8     504
+    4.2     467
+    4.1     320
+    3.9     281
+    3.6     213
+    4.9     204
+    3.5     204
+    3.0     202
+    3.2     192
+    3.7     186
+    3.8     148
+    2.0     126
+    3.3     120
+    2.7      64
+    1.0      42
+    2.2      42
+    2.5      42
+    3.4      25
+    2.9      21
+    2.3      20
+    3.1       4
+    2.8       2
+    2.1       2
+    Name: play_star_rating, dtype: int64
+
+
+
+
 ```python
 docstring by pressing shift+tab within the parentheses of a method
 ```
@@ -272,7 +581,125 @@ docstring by pressing shift+tab within the parentheses of a method
 
 ```python
 #Keep tinkering!
+df.describe()
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>list_price</th>
+      <th>num_reviews</th>
+      <th>piece_count</th>
+      <th>play_star_rating</th>
+      <th>prod_id</th>
+      <th>star_rating</th>
+      <th>val_star_rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>12261.000000</td>
+      <td>10641.000000</td>
+      <td>12261.000000</td>
+      <td>10486.000000</td>
+      <td>1.226100e+04</td>
+      <td>10641.000000</td>
+      <td>10466.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>65.141998</td>
+      <td>16.826238</td>
+      <td>493.405921</td>
+      <td>4.337641</td>
+      <td>5.983675e+04</td>
+      <td>4.514134</td>
+      <td>4.228960</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>91.980429</td>
+      <td>36.368984</td>
+      <td>825.364580</td>
+      <td>0.652051</td>
+      <td>1.638115e+05</td>
+      <td>0.518865</td>
+      <td>0.660282</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>2.272400</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>6.300000e+02</td>
+      <td>1.800000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>19.990000</td>
+      <td>2.000000</td>
+      <td>97.000000</td>
+      <td>4.000000</td>
+      <td>2.103400e+04</td>
+      <td>4.300000</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>36.587800</td>
+      <td>6.000000</td>
+      <td>216.000000</td>
+      <td>4.500000</td>
+      <td>4.206900e+04</td>
+      <td>4.700000</td>
+      <td>4.300000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>70.192200</td>
+      <td>13.000000</td>
+      <td>544.000000</td>
+      <td>4.800000</td>
+      <td>7.092200e+04</td>
+      <td>5.000000</td>
+      <td>4.700000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1104.870000</td>
+      <td>367.000000</td>
+      <td>7541.000000</td>
+      <td>5.000000</td>
+      <td>2.000431e+06</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 ## Graphing
 
@@ -290,9 +717,23 @@ import matplotlib.pyplot as plt
 
 
 ```python
+# assign series to "to_graph" object
 to_graph = df.theme_name.value_counts()[:5]
+
+# call plot method on to_graph object
 to_graph.plot(kind='barh')
 ```
+
+
+
+
+    <matplotlib.axes._subplots.AxesSubplot at 0x119b55f28>
+
+
+
+
+![png](index_files/index_42_1.png)
+
 
 ## Adding labels
 The graph above is a good start, but we should be sure to add some labels! To do this we make successive calls to the `plt` package we imported. Some common methods you should be familiar with include:  
@@ -312,6 +753,17 @@ plt.xlabel('Number of Lego Sets') #you could also pass in fontsize if you wanted
 plt.ylabel('Theme') #you could also rotate text if you wanted
 ```
 
+
+
+
+    Text(0, 0.5, 'Theme')
+
+
+
+
+![png](index_files/index_44_1.png)
+
+
 ## Practice and Explore
 
 Take a minute to try chaining some of these methods together to create a few of your own visuals for practice. Some ideas can include making a scatter plot with `plt.scatter(x , y)` where you pass in two series (one as x and the other as y), plotting histograms with the `series.hist()` method, or creating simple bar graphs as shown above.
@@ -322,14 +774,58 @@ plt.scatter(df.play_star_rating, df.star_rating)
 ```
 
 
+
+
+    <matplotlib.collections.PathCollection at 0x11a5c2cf8>
+
+
+
+
+![png](index_files/index_46_1.png)
+
+
+
 ```python
 df.play_star_rating.hist()
 ```
 
 
+
+
+    <matplotlib.axes._subplots.AxesSubplot at 0x11a6a4630>
+
+
+
+
+![png](index_files/index_47_1.png)
+
+
+
 ```python
 #Your code here
+df.columns.value_counts()
 ```
+
+
+
+
+    ages                 1
+    play_star_rating     1
+    val_star_rating      1
+    prod_desc            1
+    theme_name           1
+    country              1
+    prod_long_desc       1
+    star_rating          1
+    prod_id              1
+    set_name             1
+    piece_count          1
+    review_difficulty    1
+    list_price           1
+    num_reviews          1
+    dtype: int64
+
+
 
 ## Summary
 
